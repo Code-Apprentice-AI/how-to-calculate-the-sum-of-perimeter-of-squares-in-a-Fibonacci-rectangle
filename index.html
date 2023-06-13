@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+      }
+
+      #demo {
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <img
+        src="https://images.immediate.co.uk/production/volatile/sites/4/2022/02/The-Fibonacci-Spiral-ea38c86-e1643912587486.jpg?quality=90&resize=700,448"
+        alt=""
+        srcset=""
+      />
+      <h3 id="demo"></h3>
+    </div>
+
+    <script>
+      // Calculate the sum of perimeters for a given number of squares
+      function perimeter(n) {
+        // Base case: No squares, return perimeter of first square
+        if (n === 0) return 4;
+        // Base case: Only one square, return perimeter of first and second squares
+        else if (n === 1) return 8;
+        // Recursive step: Calculate perimeter based on previous perimeters and Fibonacci sequence
+        else return perimeter(n - 1) + perimeter(n - 2) + 4 * fib(n);
+      }
+
+      // Calculate the nth Fibonacci number
+      function fib(n) {
+        // Base case: 0 or 1, return the number itself
+        if (n <= 1) return n;
+        // Recursive step: Calculate sum of previous two Fibonacci numbers
+        else return fib(n - 1) + fib(n - 2);
+      }
+
+      let n = 35;
+      let total_perimeter = perimeter(n);
+
+      document.getElementById(
+        "demo"
+      ).textContent = `The sum of the perimeters of ${
+        n + 1
+      } squares is: ${total_perimeter}`;
+
+      console.log(
+        `The sum of the perimeters of ${n + 1} squares is: ${total_perimeter}`
+      );
+    </script>
+  </body>
+</html>
